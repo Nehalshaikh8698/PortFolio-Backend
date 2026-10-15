@@ -15,8 +15,8 @@ export async function createContactMessage(req, res, next) {
     if (!emailPattern.test(email) || email.length > 254) {
       return res.status(400).json({ success: false, message: 'Please provide a valid email address.' });
     }
-    if (message.length < 10 || message.length > 3000) {
-      return res.status(400).json({ success: false, message: 'Message must be between 10 and 3000 characters.' });
+    if (message.length < 10 || message.length > 1000) {
+      return res.status(400).json({ success: false, message: 'Message must be between 10 and 1000 characters.' });
     }
 
     const savedMessage = await ContactMessage.create({ name, email, message });
